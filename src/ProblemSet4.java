@@ -94,15 +94,11 @@ public class ProblemSet4 {
       do {
         System.out.print("Positive integer: ");
         positiveInteger = in.nextLong();
-      } while (positiveInteger > 0);
+      } while (positiveInteger <= 0);
 
-      while (positiveInteger != 0) {
-          positiveInteger /= 10;
-          ++numOfDigits;
-      }
       while (positiveInteger > 0) {
-          System.out.println(digit % 10);
-          digit = digit / 10;
+          System.out.print(positiveInteger % 10 + ", ");
+          positiveInteger = positiveInteger / 10;
       }
 
     }
