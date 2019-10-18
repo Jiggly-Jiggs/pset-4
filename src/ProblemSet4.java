@@ -28,9 +28,9 @@ public class ProblemSet4 {
         // comment out or uncomment as needed
 
         // ps.sum();
-        ps.reverse();
+        // ps.reverse();
         // ps.digits();
-        // ps.average();
+        ps.average();
         // ps.prime();
         // ps.fibonacci();
         // ps.factors();
@@ -88,17 +88,25 @@ public class ProblemSet4 {
 
       System.out.print("\n");
       long positiveInteger = 0;
-      long numOfDigits = 0;
-      int digit = 0;
+      long digit = 0;
 
       do {
-        System.out.print("Positive integer: ");
+        System.out.print("\nPositive integer: ");
         positiveInteger = in.nextLong();
       } while (positiveInteger <= 0);
 
+      System.out.println("");
+
       while (positiveInteger > 0) {
-          System.out.print(positiveInteger % 10 + ", ");
-          positiveInteger = positiveInteger / 10;
+        if (positiveInteger / 10 < 1) {
+          digit = positiveInteger % 10;
+          positiveInteger /= 10;
+          System.out.print(digit + ".");
+        } else {
+          digit = positiveInteger % 10;
+          positiveInteger /= 10;
+          System.out.print(digit + ", ");
+        }
       }
 
     }
@@ -112,6 +120,30 @@ public class ProblemSet4 {
 
     public void digits() {
 
+      System.out.print("\n");
+      long positiveInteger = 0;
+      long digit = 0;
+      long total = 0;
+
+      do {
+        System.out.print("\nPositive integer: ");
+        positiveInteger = in.nextLong();
+      } while (positiveInteger <= 0);
+
+      System.out.println("");
+
+      while (positiveInteger > 0) {
+        digit = positiveInteger % 10;
+          if (digit % 2 != 0) {
+            total += digit;
+            positiveInteger /= 10;
+          } else {
+            positiveInteger /= 10;
+          }
+      }
+
+      System.out.println(total + ".");
+
     }
 
     /*
@@ -123,6 +155,27 @@ public class ProblemSet4 {
      */
 
     public void average() {
+
+      System.out.print("\n");
+      long nonNegative = 0;
+      long digit = 0;
+      double total = 0;
+      long numOfValues = 0;
+      boolean check = false;
+
+      while (check == false) {
+        System.out.print("Non-negative integer: ");
+        nonNegative = in.nextLong();
+        if (nonNegative >= 0) {
+        total += nonNegative;
+        numOfValues++;
+        } else {
+        check = true;
+        }
+      }
+      total /= numOfValues;
+
+      System.out.printf("\n%,.2f.", total);
 
     }
 
