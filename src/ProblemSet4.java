@@ -27,12 +27,12 @@ public class ProblemSet4 {
 
         // comment out or uncomment as needed
 
-        // ps.sum();
-        // ps.reverse();
-        // ps.digits();
+        ps.sum();
+        ps.reverse();
+        ps.digits();
         ps.average();
-        // ps.prime();
-        // ps.fibonacci();
+        ps.prime();
+        ps.fibonacci();
         // ps.factors();
         // ps.mario();
         // ps.luigi();
@@ -86,12 +86,12 @@ public class ProblemSet4 {
 
     public void reverse() {
 
-      System.out.print("\n");
+      System.out.println("\n");
       long positiveInteger = 0;
       long digit = 0;
 
       do {
-        System.out.print("\nPositive integer: ");
+        System.out.print("Positive integer: ");
         positiveInteger = in.nextLong();
       } while (positiveInteger <= 0);
 
@@ -120,13 +120,13 @@ public class ProblemSet4 {
 
     public void digits() {
 
-      System.out.print("\n");
+      System.out.println("\n");
       long positiveInteger = 0;
       long digit = 0;
       long total = 0;
 
       do {
-        System.out.print("\nPositive integer: ");
+        System.out.print("Positive integer: ");
         positiveInteger = in.nextLong();
       } while (positiveInteger <= 0);
 
@@ -156,12 +156,12 @@ public class ProblemSet4 {
 
     public void average() {
 
-      System.out.print("\n");
       long nonNegative = 0;
       long digit = 0;
       double total = 0;
       long numOfValues = 0;
       boolean check = false;
+      System.out.print("\n");
 
       while (check == false) {
         System.out.print("Non-negative integer: ");
@@ -187,6 +187,31 @@ public class ProblemSet4 {
 
     public void prime() {
 
+      long nonNegative = -1;
+      boolean isPrime = true;
+      System.out.println("\n");
+
+      while (nonNegative < 0) {
+        System.out.print("Non-negative integer: ");
+        nonNegative = in.nextLong();
+      }
+
+      if (nonNegative == 0 || nonNegative == 1) {
+        isPrime = false;
+      } else {
+          for (int i = 2; i < nonNegative; i++) {
+            if (nonNegative % i == 0) {
+              isPrime = false;
+            }
+          }
+        }
+
+      if (!isPrime) {
+        System.out.println("\nNot prime.");
+      } else if (isPrime) {
+        System.out.println("\nPrime.");
+      }
+
     }
 
     /*
@@ -197,6 +222,26 @@ public class ProblemSet4 {
      */
 
     public void fibonacci() {
+
+      int positiveInteger = -1;
+      int int1 = 0;
+      int int2 = 1;
+      int int3 = 0;;
+
+      System.out.print("\n");
+
+      while (positiveInteger < 1 || positiveInteger > 92) {
+        System.out.print("Non-negative integer: ");
+        positiveInteger = in.nextInt();
+      }
+
+      for (int i = 1; i < positiveInteger; i++) {
+        int3 = int1 + int2;
+        int1 = int2;
+        int2 = int3;
+      }
+
+      System.out.println("\n" + int3 + ".");
 
     }
 
