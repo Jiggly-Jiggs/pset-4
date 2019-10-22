@@ -27,14 +27,14 @@ public class ProblemSet4 {
 
         // comment out or uncomment as needed
 
-        ps.sum();
-        ps.reverse();
-        ps.digits();
-        ps.average();
-        ps.prime();
-        ps.fibonacci();
+        // ps.sum();
+        // ps.reverse();
+        // ps.digits();
+        // ps.average();
+        // ps.prime();
+        // ps.fibonacci();
         // ps.factors();
-        // ps.mario();
+        ps.mario();
         // ps.luigi();
         // ps.credit();
 
@@ -231,7 +231,7 @@ public class ProblemSet4 {
       System.out.print("\n");
 
       while (positiveInteger < 1 || positiveInteger > 92) {
-        System.out.print("Non-negative integer: ");
+        System.out.print("Positive integer: ");
         positiveInteger = in.nextInt();
       }
 
@@ -253,6 +253,32 @@ public class ProblemSet4 {
 
     public void factors() {
 
+      long positiveInteger = 0;
+
+      System.out.print("\n");
+
+      while (positiveInteger < 1) {
+        System.out.print("Positive integer: ");
+        positiveInteger = in.nextLong();
+      }
+
+      System.out.print("\n1, " + positiveInteger);
+
+      for (int i = 2; i <= positiveInteger / i; i++) {
+       if (positiveInteger % i == 0) {
+           System.out.print(", " + i + ", " + positiveInteger / i);
+       }
+     }
+
+     System.out.print(".");
+
+      // for (int i = 1; i <= positiveInteger; i++) {
+      //   if (i < (positiveInteger + 1)) {
+      //     i /= positiveInteger;
+      //     System.out.print(i + ", " + positiveInteger + ", ");
+      //   }
+      // }
+
     }
 
     /*
@@ -263,6 +289,19 @@ public class ProblemSet4 {
      */
 
     public void mario() {
+
+      int height = 0;
+
+      while (height >= 1 && height <= 24) {
+        System.out.print("Positive integer: ");
+        height = in.nextInt();
+      }
+
+      while () {
+        for (int i = 1, i <= height - 1 - i, i++) {
+          System.out.print(" ");
+        }
+      }
 
     }
 
