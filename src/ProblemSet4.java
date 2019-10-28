@@ -27,15 +27,15 @@ public class ProblemSet4 {
 
         // comment out or uncomment as needed
 
-        // ps.sum();
-        // ps.reverse();
-        // ps.digits();
-        // ps.average();
-        // ps.prime();
-        // ps.fibonacci();
-        // ps.factors();
+        ps.sum();
+        ps.reverse();
+        ps.digits();
+        ps.average();
+        ps.prime();
+        ps.fibonacci();
+        ps.factors();
         ps.mario();
-        // ps.luigi();
+        ps.luigi();
         // ps.credit();
 
         in.close();
@@ -291,16 +291,27 @@ public class ProblemSet4 {
     public void mario() {
 
       int height = 0;
+      int spaces = 0;
+      System.out.print("\n\n");
 
-      while (height >= 1 && height <= 24) {
-        System.out.print("Positive integer: ");
+      do {
+        System.out.print("Height: ");
         height = in.nextInt();
-      }
+      } while (height < 1 || height > 24);
 
-      while () {
-        for (int i = 1, i <= height - 1 - i, i++) {
+      System.out.print("\n");
+
+      for(int i = 1; i <= height; i++) {
+        for (int s = height - i; s > 0; s--) {
           System.out.print(" ");
+          spaces++;
         }
+        for (int h = height + 1 - spaces; h > 0; h--) {
+          System.out.print("#");
+        }
+
+        System.out.print("\n");
+        spaces = 0;
       }
 
     }
@@ -314,6 +325,39 @@ public class ProblemSet4 {
 
     public void luigi() {
 
+      int height = 0;
+      int spaces = 0;
+      int pound = 0;
+      System.out.print("\n");
+
+      do {
+        System.out.print("Height: ");
+        height = in.nextInt();
+      } while (height < 1 || height > 24);
+
+      System.out.print("\n");
+
+      for(int i = 1; i <= height; i++) {
+        for (int s = height - i; s > 0; s--) {
+          System.out.print(" ");
+          spaces++;
+        }
+        for (int h = height + 1 - spaces; h > 0; h--) {
+          System.out.print("#");
+          pound++;
+        }
+
+        System.out.print("  ");
+
+        for (long k = 0; k < pound; k++) {
+          System.out.print("#");
+        }
+
+        System.out.print("\n");
+        spaces = 0;
+        pound = 0;
+      }
+
     }
 
     /*
@@ -324,6 +368,9 @@ public class ProblemSet4 {
      */
 
     public void credit() {
+
+
+      System.out.print("\n");
 
     }
 }
