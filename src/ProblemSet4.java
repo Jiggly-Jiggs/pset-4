@@ -27,16 +27,16 @@ public class ProblemSet4 {
 
         // comment out or uncomment as needed
 
-        ps.sum();
-        ps.reverse();
-        ps.digits();
-        ps.average();
-        ps.prime();
-        ps.fibonacci();
+        // ps.sum();
+        // ps.reverse();
+        // ps.digits();
+        // ps.average();
+        // ps.prime();
+        // ps.fibonacci();
         // ps.factors();
         // ps.mario();
         // ps.luigi();
-        // ps.credit();
+        ps.credit();
 
         in.close();
     }
@@ -53,10 +53,11 @@ public class ProblemSet4 {
 
     public void sum() {
 
-      System.out.print("\n");
       long boundLower;
       long boundUpper;
       long total = 0;
+
+      System.out.print("\n");
 
       do {
         System.out.print("Lower bound: ");
@@ -86,9 +87,10 @@ public class ProblemSet4 {
 
     public void reverse() {
 
-      System.out.println("\n");
       long positiveInteger = 0;
       long digit = 0;
+
+      System.out.print("\n\n");
 
       do {
         System.out.print("Positive integer: ");
@@ -120,10 +122,11 @@ public class ProblemSet4 {
 
     public void digits() {
 
-      System.out.println("\n");
       long positiveInteger = 0;
       long digit = 0;
       long total = 0;
+
+      System.out.print("\n\n");
 
       do {
         System.out.print("Positive integer: ");
@@ -161,6 +164,7 @@ public class ProblemSet4 {
       double total = 0;
       long numOfValues = 0;
       boolean check = false;
+
       System.out.print("\n");
 
       while (check == false) {
@@ -189,7 +193,8 @@ public class ProblemSet4 {
 
       long nonNegative = -1;
       boolean isPrime = true;
-      System.out.println("\n");
+
+      System.out.print("\n\n");
 
       while (nonNegative < 0) {
         System.out.print("Non-negative integer: ");
@@ -231,7 +236,7 @@ public class ProblemSet4 {
       System.out.print("\n");
 
       while (positiveInteger < 1 || positiveInteger > 92) {
-        System.out.print("Non-negative integer: ");
+        System.out.print("Positive integer: ");
         positiveInteger = in.nextInt();
       }
 
@@ -253,6 +258,32 @@ public class ProblemSet4 {
 
     public void factors() {
 
+      long positiveInteger = 0;
+
+      System.out.print("\n");
+
+      while (positiveInteger < 1) {
+        System.out.print("Positive integer: ");
+        positiveInteger = in.nextLong();
+      }
+
+      System.out.print("\n1, " + positiveInteger);
+
+      for (int i = 2; i <= positiveInteger / i; i++) {
+       if (positiveInteger % i == 0) {
+           System.out.print(", " + i + ", " + positiveInteger / i);
+       }
+     }
+
+     System.out.print(".");
+
+      // for (int i = 1; i <= positiveInteger; i++) {
+      //   if (i < (positiveInteger + 1)) {
+      //     i /= positiveInteger;
+      //     System.out.print(i + ", " + positiveInteger + ", ");
+      //   }
+      // }
+
     }
 
     /*
@@ -263,6 +294,31 @@ public class ProblemSet4 {
      */
 
     public void mario() {
+
+      int height = 0;
+      int spaces = 0;
+
+      System.out.print("\n\n");
+
+      do {
+        System.out.print("Height: ");
+        height = in.nextInt();
+      } while (height < 1 || height > 24);
+
+      System.out.print("\n");
+
+      for(int i = 1; i <= height; i++) {
+        for (int s = height - i; s > 0; s--) {
+          System.out.print(" ");
+          spaces++;
+        }
+        for (int h = height + 1 - spaces; h > 0; h--) {
+          System.out.print("#");
+        }
+
+        System.out.print("\n");
+        spaces = 0;
+      }
 
     }
 
@@ -275,6 +331,40 @@ public class ProblemSet4 {
 
     public void luigi() {
 
+      int height = 0;
+      int spaces = 0;
+      int pound = 0;
+
+      System.out.print("\n");
+
+      do {
+        System.out.print("Height: ");
+        height = in.nextInt();
+      } while (height < 1 || height > 24);
+
+      System.out.print("\n");
+
+      for(int i = 1; i <= height; i++) {
+        for (int s = height - i; s > 0; s--) {
+          System.out.print(" ");
+          spaces++;
+        }
+        for (int h = height + 1 - spaces; h > 0; h--) {
+          System.out.print("#");
+          pound++;
+        }
+
+        System.out.print("  ");
+
+        for (long k = 0; k < pound; k++) {
+          System.out.print("#");
+        }
+
+        System.out.print("\n");
+        spaces = 0;
+        pound = 0;
+      }
+
     }
 
     /*
@@ -285,6 +375,56 @@ public class ProblemSet4 {
      */
 
     public void credit() {
+
+      long cardNumber = 0;
+      String cardString = "";
+      int sumFirst = 0;
+      int sumSecond = 0;
+      String sumString = "";
+      String cardType = "Invalid";
+
+      System.out.print("\n");
+
+      do {
+        System.out.print("Number: ");
+        cardNumber = in.nextLong();
+        cardString = Long.toString(cardNumber);
+      } while (cardNumber <= 0);
+
+      cardString = Long.toString(cardNumber);
+
+      for (int i = cardString.length() - 1; i > 0; i -= 2) {
+        sumString += Integer.toString(2 * Integer.parseInt(cardString.substring(i, i + 1)));
+      }
+      for (int i = sumString.length() - 1; i >= 0; i--) {
+        sumFirst += Integer.parseInt(sumString.substring(i, i + 1));
+      }
+      for (int i = cardString.length() - 1; i >= 0; i -= 2) {
+        sumSecond += Integer.parseInt(cardString.substring(i, i + 1));
+      }
+
+      if (cardString.length() == 15 && (cardString.substring(0, 2).equals("37") ||
+      cardString.substring(0, 2).equals("34")) && ((sumFirst + sumSecond) % 10 == 0)) {
+        cardType = "Amex";
+      } else if ((cardString.length() == 16 || cardString.length() == 13) && ((sumFirst + sumSecond) % 10 == 0) &&
+        (cardString.substring(0, 1).equals("4"))) {
+        cardType = "Visa";
+      } else if (cardString.length() == 16 && ((sumFirst + sumSecond) % 10 == 0)) {
+        String beginning = cardString.substring(0,2);
+        if (beginning.equals("51")) {
+          cardType = "Mastercard";
+        } else if (beginning.equals("52")) {
+          cardType = "Mastercard";
+        } else if (beginning.equals("53")) {
+          cardType = "Mastercard";
+        } else if (beginning.equals("54")) {
+          cardType = "Mastercard";
+        } else if (beginning.equals("55")) {
+          cardType = "Mastercard";
+        }
+      }
+
+      System.out.printf("\n%s.\n", cardType);
 
     }
 }
